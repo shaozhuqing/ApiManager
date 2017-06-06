@@ -1,7 +1,7 @@
 <?php
     //项目所有文件的入口文件
     //防跳墙常量
-    define('API','http://gwalker.cn');
+    define('API','http://shaozhuqing.com');
     //开启session
     session_start();
     //关错错误输出

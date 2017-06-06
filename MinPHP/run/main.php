@@ -1,4 +1,4 @@
-<?php defined('API') or exit('http://gwalker.cn');?>
+<?php defined('API') or exit('http://shaozhuqing.com');?>
 <!DOCTYPE html>
 <html lang="zh-CN" style="height:100%">
 <head>
@@ -19,7 +19,7 @@
     <div class="row" style="height:100%;">
         <!--左侧导航start-->
         <div id="navbar" class="col-md-3" style="position:relative;background:#f5f5f5;padding:10px;height:100%;border-right:#ddd 1px solid;overflow-y:auto;<?php if($_COOKIE[C('cookie->navbar')]==1){?>display:none<?php }?>">
-            <div style="height:50px;font-size:30px;line-height:50px;">
+            <div style="height:50px;font-size:24px;line-height:50px;">
                 <a class="home" style="color:#000000;text-shadow:1px 0px 1px #666;text-decoration: none" href="<?php echo U()?>">
                     <span class="glyphicon glyphicon-random" aria-hidden="true" style="width:40px;"></span>&nbsp;
         <span style="position: relative;top:-3px;">API Manager <span style="font-size:12px;position:relative;top:-13px;">&nbsp;<?php echo C('version->no')?></span>
@@ -33,8 +33,8 @@
         <!--左侧导航end-->
         <div id="mainwindow" <?php if($_COOKIE[C('cookie->navbar')]==1){?>class="col-md-12"<?php }else{?>class="col-md-9" <?php }?>  style="height:100%;background:white;margin:0px;overflow-y:auto;padding:0px;">
             <!--顶部导航start-->
-            <div class="textshadow" style="font-size:16px;widht:100%;height:60px;line-height:60px;padding:0 16px 0 16px;;border-bottom:#ddd 1px solid">
-                <span> <a class="home" href="<?php echo U() ?>">Home</a><?php echo $menu;?></span>
+            <div class="textshadow" style="font-size:14px;widht:100%;height:50px;line-height:50px;padding:0 12px 0 12px;;border-bottom:#ddd 1px solid">
+                <span> <a class="home" href="<?php echo U() ?>">首页</a><?php echo $menu;?></span>
         <span id="topbutton" style="float:right">
             <?php
             if(is_login()){
@@ -44,7 +44,7 @@
                     echo '<a href="?act=sort&tag='.$_GET['tag'].'">排序&nbsp;&nbsp;</a>';
                     echo '<a href="?act=export&tag='.$_GET['tag'].'">导出&nbsp;&nbsp;</a>';
                 }
-                echo '<a href="?act=modpwd">修改密码</a>&nbsp;&nbsp;<a href="?act=login&type=quit">退出&nbsp;&nbsp;<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>';
+                echo '<a href="?act=modpwd">修改密码</a>&nbsp;&nbsp;<a href="?act=login&type=quit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>';
             }else{
                 echo '<a href="?act=login">登录&nbsp;&nbsp;<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>';
             }

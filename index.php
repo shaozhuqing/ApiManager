@@ -16,7 +16,7 @@
             break;
         //首页
         case 'index':
-            $menu = ' - 欢迎';
+            $menu = ' - 欢迎页';
             $file ='./MinPHP/run/hello.php';
             break;
         //接口详细页
@@ -47,7 +47,7 @@
             $file = './MinPHP/run/modpwd.php';
             break;
         default :
-            $menu = ' - 欢迎';
+            $menu = ' - 欢迎页';
             $file = './MinPHP/run/hello.php';
             break;
     }

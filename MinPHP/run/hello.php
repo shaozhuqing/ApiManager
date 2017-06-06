@@ -1,4 +1,4 @@
-<?php defined('API') or exit('http://gwalker.cn');?>
+<?php defined('API') or exit('http://shaozhuqing.com');?>
 <!--欢迎页-->
 <!--info start-->
 <div style="font-size:18px;">
@@ -10,7 +10,7 @@
         </pre>
     </div>
     <div style="font-size:12px;position:absolute;bottom:0;right:20px;height:20px;text-align:right;">
-        路人庚 | qq : 309581329 | github : <a target="_blank" href="https://github.com/gongwalker/ApiManager.git">https://github.com/gongwalker/ApiManager.git</a>
+        极简API | qq : 47346124 | github : <a target="_blank" href="https://github.com/shaozhuqing/ApiManager.git">https://github.com/shaozhuqing/ApiManager.git</a>
     </div>
 </div>
 <!--欢迎页 end-->

@@ -1,5 +1,5 @@
 <!--登录与退出start-->
-<?php defined('API') or exit('http://gwalker.cn');?>
+<?php defined('API') or exit('http://shaozhuqing.com');?>
 <?php
     $type= I($_GET['type']);
     //登录
@@ -9,6 +9,7 @@
         $login_pwd = md5($_VAL['pwd']);
         $sql = "select * from user where login_name = '{$login_name}' and login_pwd = '{$login_pwd}' and isdel = '0'";
         $info = find($sql);
+
         if(!empty($info)){
             session('id',$info['id']); //用户id
             session('nice_name',$info['nice_name']); //昵称
@@ -23,8 +24,8 @@
         }
     //退出
     }if($type == 'quit'){
-        session('login_name','');
-        session('issupper','');
+        session_unset();
+        session_destroy();
         go(U());
     }
 ?>
@@ -39,7 +40,7 @@
                 <div class="form-group">
                     <input type="password" class="form-control" name="pwd" placeholder="密码" required="required">
                 </div>
-                <button class="btn btn-success">Submit</button>
+                <button class="btn btn-success">提交</button>
             </form>
         </div>
     </div>

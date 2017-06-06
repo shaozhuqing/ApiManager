@@ -1,4 +1,4 @@
-<?php defined('API') or exit('http://gwalker.cn');?>
+<?php defined('API') or exit('http://shaozhuqing.com');?>
 <!--接口分类管理-->
 <?php
 if(!is_supper()){die('只有超级管理员才可对分类进行操作');}
@@ -69,7 +69,7 @@ switch($op){
                     <div class="form-group">
                         <input type="text" class="form-control" name="cdesc" placeholder="描述">
                     </div>
-                    <button class="btn btn-success" name="op" value="add">Submit</button>
+                    <button class="btn btn-success" name="op" value="add">提交</button>
                 </form>
             </div>
         </div>
@@ -87,7 +87,7 @@ switch($op){
                     <div class="form-group">
                         <input type="text" class="form-control" name="cdesc" placeholder="描述" value="<?php echo $info['cdesc'] ?>">
                     </div>
-                    <button class="btn btn-success" name="op" value="edit">Submit</button>
+                    <button class="btn btn-success" name="op" value="edit">提交</button>
                 </form>
             </div>
         </div>

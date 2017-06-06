@@ -256,7 +256,7 @@ function DeleteCookie(name) {
                             <tr>
                                 <th class="col-md-3">参数名</th>
 								<th class="col-md-2">参数类型</th>
-                                <th class="col-md-2">必传</th>
+                                <th class="col-md-1">必传</th>
                                 <th class="col-md-2">缺省值</th>
                                 <th class="col-md-4">描述</th>
                                 <th class="col-md-1">
@@ -285,13 +285,13 @@ function DeleteCookie(name) {
                     </div>
                     <div class="form-group">
                         <h5>返回结果</h5>
-                        <textarea name="re" rows="3" class="form-control" placeholder="返回结果"></textarea>
+                        <textarea name="re" rows="6" class="form-control" placeholder="返回结果"></textarea>
                     </div>
                     <div class="form-group">
                         <h5>备注</h5>
                         <textarea name="memo" rows="3" class="form-control" placeholder="备注"></textarea>
                     </div>
-                    <button class="btn btn-success">Submit</button>
+                    <button class="btn btn-success">提交</button>
                 </form>
             </div>
         </div>
@@ -368,9 +368,9 @@ function DeleteCookie(name) {
                         <table class="table">
                             <thead>
                             <tr>
-                                <th class="col-md-3">参数名</th>
+                                <th class="col-md-3">参数名称</th>
                                 <th class="col-md-2">参数类型</th>
-								<th class="col-md-2">必传</th>
+								<th class="col-md-1">必传</th>
                                 <th class="col-md-2">缺省值</th>
                                 <th class="col-md-4">描述</th>
                                 <th class="col-md-1">
@@ -410,13 +410,13 @@ function DeleteCookie(name) {
                     </div>
                     <div class="form-group">
                         <h5>返回结果</h5>
-                        <textarea name="re" rows="3" class="form-control" placeholder="返回结果"><?php echo $info['re']?></textarea>
+                        <textarea name="re" rows="6" class="form-control" placeholder="返回结果"><?php echo $info['re']?></textarea>
                     </div>
                     <div class="form-group">
                         <h5>备注</h5>
                         <textarea name="memo" rows="3" class="form-control" placeholder="备注"><?php echo $info['memo']?></textarea>
                     </div>
-                    <button class="btn btn-success">Submit</button>
+                    <button class="btn btn-success">提交</button>
                 </form>
             </div>
         </div>
@@ -458,42 +458,40 @@ function DeleteCookie(name) {
     <?php if(count($list)){ ?>
         <?php foreach($list as $v){ ?>
         <div class="info_api" style="border:1px solid #ddd;margin-bottom:20px;" id="info_api_<?php echo md5($v['id'])?>">
-            <div style="background:#f5f5f5;padding:20px;position:relative">
-                <div class="textshadow" style="position: absolute;right:0;top:4px;right:8px;">
+            <div style="background:#e3f5e2;padding:10px;position:relative">
+                <div class="textshadow" style="position: absolute;right:0;top:8px;right:8px;">
                     最后修改者: <?php echo $v['login_name']?> &nbsp;<?php echo date('Y-m-d H:i:s',$v['lasttime'])?>&nbsp;
                     <?php if(is_supper()){?>
-                    <button class="btn btn-danger btn-xs " onclick="deleteApi(<?php echo $v['id']?>,'<?php echo md5($v['id'])?>')">delete</button>&nbsp;
-                    <button class="btn btn-info btn-xs " onclick="editApi('<?php echo U(array('act'=>'api','op'=>'edit','id'=>$v['id'],'tag'=>$_GET['tag']))?>')">edit</button>
-                    <button class="btn btn-primary btn-xs " onclick="copyApi(<?php echo $v['id']?>)">copy</button>
+                    <button class="btn btn-danger btn-xs " onclick="deleteApi(<?php echo $v['id']?>,'<?php echo md5($v['id'])?>')">D</button>&nbsp;
+                    <button class="btn btn-info btn-xs " onclick="editApi('<?php echo U(array('act'=>'api','op'=>'edit','id'=>$v['id'],'tag'=>$_GET['tag']))?>')">U</button>
+                    <button class="btn btn-primary btn-xs " onclick="copyApi(<?php echo $v['id']?>)">C</button>
                     <?php } ?>
                 </div>
+                <b>编号&nbsp;&nbsp;:&nbsp;&nbsp;<span class="label label-info"><?php echo $v['num']?></span></b>
+                <br/><br/>
                 <h4 class="textshadow"><?php echo $v['name']?></h4>
                 <p>
-                    <b>编号&nbsp;&nbsp;:&nbsp;&nbsp;<span style="color:red"><?php echo $v['num']?></span></b>
+                    <b>接口&nbsp;&nbsp;:&nbsp;&nbsp;
+                        <span class="label label-warning"><?php echo $v['type']?></span>
+                        &nbsp;
+                        <span class="label label-success"><?php echo $v['url']?></span>
+                    </b>
                 </p>
-                <div>
-                    <?php
-                        $color = 'green';
-                        if($v['type']=='POST'){
-                            $color = 'red';
-                        }
-                    ?>
-                    <kbd style="color:<?php echo $color?>"><?php echo $v['type']?></kbd> - <kbd><?php echo $v['url']?></kbd>
-                </div>
+                <?php if(!empty($v['des'])){ ?>
+                    <div class="info">
+                        <?php echo $v['des']?>
+                    </div>
+                <?php } ?>
             </div>
-            <?php if(!empty($v['des'])){ ?>
-            <div class="info">
-                <?php echo $v['des']?>
-            </div>
-            <?php } ?>
+
             <div style="background:#ffffff;padding:20px;">
                 <h5 class="textshadow" >请求参数</h5>
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="col-md-3">参数名</th>
-                        <th class="col-md-2">参数类型</th>
-						<th class="col-md-2">必传</th>
+                        <th class="col-md-3">参数名称</th>
+                        <th class="col-md-1">参数类型</th>
+						<th class="col-md-1">必传</th>
                         <th class="col-md-2">缺省值</th>
                         <th class="col-md-5">描述</th>
                     </tr>
@@ -518,17 +516,18 @@ function DeleteCookie(name) {
             </div>
             <?php if(!empty($v['re'])){ ?>
             <div style="background:#ffffff;padding:20px;">
-                <h5 class="textshadow" >返回值</h5>
+                <h5 class="textshadow" >返回参数</h5>
                 <pre><?php echo $v['re']?></pre>
             </div>
             <?php } ?>
             <?php if(!empty($v['memo'])){ ?>
             <div style="background:#ffffff;padding:20px;">
                 <h5 class="textshadow">备注</h5>
-                <pre style="background:honeydew"><?php echo $v['memo']?></pre>
+                <pre style="background:#edf5ff"><?php echo $v['memo']?></pre>
             </div>
             <?php } ?>
         </div>
+            <hr/><br/>
         <!--接口详细列表end-->
         <!--接口详情返回顶部按钮start-->
         <div id="gotop" onclick="goTop()" style="z-index:999999;font-size:18px;display:none;color:#e6e6e6;cursor:pointer;width:42px;height:42px;border:#ddd 1px solid;line-height:42px;text-align:center;background:rgba(91,192,222, 0.8);position:fixed;right:20px;bottom:200px;border-radius:50%;box-shadow: 0px 0px 0px 1px #cccccc;">

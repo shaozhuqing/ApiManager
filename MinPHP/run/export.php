@@ -1,5 +1,5 @@
 <?php
-    defined('API') or exit('http://gwalker.cn');
+    defined('API') or exit('http://shaozhuqing.com');
     if(!is_supper()){die('只有超级管理员才可进行导出操作');}
     define('BASEURL',baseUrl());
     //接口分类id
@@ -70,11 +70,11 @@ $headhtml=<<<START
 =======================================================================
 此文档由API Manager {$tag} 导出
 =======================================================================
-github : https://github.com/gongwalker/ApiManager.git
+github : https://github.com/shaozhuqing/ApiManager.git
 =======================================================================
-作者 : 路人庚
+作者 : 极简API
 =======================================================================
-QQ : 309581329
+QQ : 47346124
 =======================================================================
 -->
 START;
