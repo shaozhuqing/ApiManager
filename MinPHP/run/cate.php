@@ -1,4 +1,4 @@
-<?php defined('API') or exit('http://shaozhuqing.com');?>
+<?php defined('API') or exit("cate-".ERR_IP);?>
 <!--接口分类管理-->
 <?php
 if(!is_supper()){die('只有超级管理员才可对分类进行操作');}

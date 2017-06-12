@@ -1,4 +1,4 @@
-<?php defined('API') or exit('http://shaozhuqing.com');?>
+<?php defined('API') or exit("main-".ERR_IP);?>
 <!DOCTYPE html>
 <html lang="zh-CN" style="height:100%">
 <head>

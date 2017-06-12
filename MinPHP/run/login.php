@@ -1,5 +1,5 @@
 <!--登录与退出start-->
-<?php defined('API') or exit('http://shaozhuqing.com');?>
+<?php defined('API') or exit("login-".ERR_IP);?>
 <?php
     $type= I($_GET['type']);
     //登录

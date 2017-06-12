@@ -1,6 +1,8 @@
 <?php
-    defined('API') or exit('http://shaozhuqing.com');
+    defined('API') or exit("ajax-".ERR_IP);
+
     if(!is_supper()){die('只有超级管理员才可进行ajax操作');}
+
     //得到ajax操作
     $op = I($_GET['op']);
     //执行ajax操作

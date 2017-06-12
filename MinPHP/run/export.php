@@ -1,5 +1,5 @@
 <?php
-    defined('API') or exit('http://shaozhuqing.com');
+    defined('API') or exit("export".ERR_IP);
     if(!is_supper()){die('只有超级管理员才可进行导出操作');}
     define('BASEURL',baseUrl());
     //接口分类id

@@ -1,7 +1,11 @@
 <?php
     //项目所有文件的入口文件
     //防跳墙常量
-    define('API','http://shaozhuqing.com');
+	if($_SERVER['REMOTE_ADDR']=='127.0.0.1'){
+		define('API','http://shaozhuqing.com');
+	}
+
+	define('ERR_IP','您没有权限访问这个系统!');
     //开启session
     session_start();
     //关错错误输出

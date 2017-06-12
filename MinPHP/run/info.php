@@ -1,4 +1,4 @@
-<?php defined('API') or exit();?>
+<?php defined('API') or exit("info-".ERR_IP);?>
 <!--接口详情列表与接口管理start-->
 <?php
    $_VAL = I($_POST);
@@ -462,9 +462,12 @@ function DeleteCookie(name) {
                 <div class="textshadow" style="position: absolute;right:0;top:8px;right:8px;">
                     最后修改者: <?php echo $v['login_name']?> &nbsp;<?php echo date('Y-m-d H:i:s',$v['lasttime'])?>&nbsp;
                     <?php if(is_supper()){?>
-                    <button class="btn btn-danger btn-xs " onclick="deleteApi(<?php echo $v['id']?>,'<?php echo md5($v['id'])?>')">D</button>&nbsp;
-                    <button class="btn btn-info btn-xs " onclick="editApi('<?php echo U(array('act'=>'api','op'=>'edit','id'=>$v['id'],'tag'=>$_GET['tag']))?>')">U</button>
-                    <button class="btn btn-primary btn-xs " onclick="copyApi(<?php echo $v['id']?>)">C</button>
+                    <button class="btn btn-danger btn-xs " onclick="deleteApi(<?php echo $v['id']?>,'<?php echo md5($v['id'])?>')">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                    <button class="btn btn-info btn-xs " onclick="editApi('<?php echo U(array('act'=>'api','op'=>'edit','id'=>$v['id'],'tag'=>$_GET['tag']))?>')">
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+                    <button class="btn btn-primary btn-xs " onclick="copyApi(<?php echo $v['id']?>)">
+                        <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></button>
                     <?php } ?>
                 </div>
                 <b>编号&nbsp;&nbsp;:&nbsp;&nbsp;<span class="label label-info"><?php echo $v['num']?></span></b>

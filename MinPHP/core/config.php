@@ -1,5 +1,6 @@
 <?php
-defined('API') or exit('http://shaozhuqing.com');
+defined('API') or exit("config-".ERR_IP);
+
 return array(
     //数据库连接配置
     'db'=>array(

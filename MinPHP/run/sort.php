@@ -1,5 +1,5 @@
 <?php
-    defined('API') or exit();
+    defined('API') or exit("sort-".ERR_IP);
     if(!is_supper()){die('只有超级管理员才可进行排序操作');}
 ?>
 

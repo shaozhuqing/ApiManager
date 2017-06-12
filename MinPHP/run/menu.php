@@ -1,4 +1,4 @@
-<?php defined('API') or exit('http://shaozhuqing.com');?>
+<?php defined('API') or exit("menu-".ERR_IP);?>
 <!--导航-->
 <?php if($act != 'api' && $act != 'sort'){
     $list = select('select * from cate where isdel=0 order by addtime desc');
@@ -36,10 +36,10 @@
                                 <div style="float:right;margin-right:16px;">
                                     &nbsp;
                                     <button class="btn btn-danger btn-xs" name="op" value="delete"
-                                            onclick="javascript:return confirm('您确认要删除吗?')">D
+                                            onclick="javascript:return confirm('您确认要删除吗?')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                     </button>
                                     &nbsp;
-                                    <button class="btn btn-info btn-xs" name="op" value="edit">E</button>
+                                    <button class="btn btn-info btn-xs" name="op" value="edit"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
                                 </div>
                                 <br>
                             <?php } ?>

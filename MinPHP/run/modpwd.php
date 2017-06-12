@@ -1,5 +1,5 @@
 <!--修改密码start-->
-<?php defined('API') or exit('http://shaozhuqing.com');?>
+<?php defined('API') or exit("modpwd-".ERR_IP);?>
 <?php
     $type= I($_GET['type']);
 

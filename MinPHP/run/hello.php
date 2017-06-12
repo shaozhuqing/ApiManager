@@ -1,4 +1,4 @@
-<?php defined('API') or exit('http://shaozhuqing.com');?>
+<?php defined('API') or exit("hello-".ERR_IP);?>
 <!--欢迎页-->
 <!--info start-->
 <div style="font-size:18px;">
