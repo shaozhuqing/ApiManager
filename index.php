@@ -1,4 +1,18 @@
 <?php
+	/**
+	 * 防跳墙常量
+	 * $skip :
+	 *      true  全部IP都可以访问 不做验证IP,忽略IP白名单
+	 *      false 只有白名单可以访问
+	 * list  :
+	 *      可以访问的IP白名单
+	 */
+	$skip = true;
+	$list = array('127.0.0.1');
+	if($skip||in_array($_SERVER['REMOTE_ADDR'],$list)){
+		define('API','http://shaozhuqing.com');
+	}
+
     include './MinPHP/run/init.php';
     $act = $_GET['act'];
     $act = empty($act) ? 'index' : $_GET['act'];

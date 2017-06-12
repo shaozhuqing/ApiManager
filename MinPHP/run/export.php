@@ -1,5 +1,5 @@
 <?php
-    defined('API') or exit("export".ERR_IP);
+    defined('API') or exit('export-'.ERR_IP);
     if(!is_supper()){die('只有超级管理员才可进行导出操作');}
     define('BASEURL',baseUrl());
     //接口分类id
@@ -74,7 +74,7 @@ github : https://github.com/shaozhuqing/ApiManager.git
 =======================================================================
 作者 : 极简API
 =======================================================================
-QQ : 47346124
+http://shaozhuqing.com
 =======================================================================
 -->
 START;
