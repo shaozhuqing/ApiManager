@@ -3,19 +3,19 @@
 <?php
 if(!is_supper()){die('只有超级管理员才可对分类进行操作');}
 //操作类型{add,delete,edit}
-$op = I($_POST['op']);
+$op   = I($_POST['op']);
 //是否执行操作(如果为do的话,则为执行添加,删除,编辑操作)
 $type = I($_GET['type']);
 switch($op){
     //添加
     case 'add':
         if($type  == 'do'){
-            $_VAL = I($_POST);
+            $_VAL  = I($_POST);
             $cname = $_VAL['cname'];
             $cdesc = $_VAL['cdesc'];
-            $time = time();
+            $time  = time();
             if(!empty($cname) && !empty($cdesc)){
-                $sql = "insert into cate (cname,cdesc,addtime) values('{$cname}','{$cdesc}','{$time}')";
+                $sql = "insert into cate (cname,cdesc,addtime,ctime) values('{$cname}','{$cdesc}','{$time}','".date("Y-m-d H:i:s",$time)."')";
                 $re = insert($sql);
                 if($re){
                     go(U());

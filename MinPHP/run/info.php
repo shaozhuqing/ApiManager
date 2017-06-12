@@ -13,26 +13,27 @@
             if(empty($aid)){
                 die('<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 所属分类不能为空');
             }
-            $num = htmlspecialchars($_POST['num'],ENT_QUOTES);   //接口编号(为了导致编号的前导0去过滤掉。不用用I方法过滤)
+            $num  = htmlspecialchars($_POST['num'],ENT_QUOTES);   //接口编号(为了导致编号的前导0去过滤掉。不用用I方法过滤)
             $name = $_VAL['name'];  //接口名称
             $memo = $_VAL['memo']; //备注
-            $des = $_VAL['des'];    //描述
+            $des  = $_VAL['des'];    //描述
             $type = $_VAL['type'];  //请求方式
-            $url = $_VAL['url'];
+            $url  = $_VAL['url'];
 
             $parameter = serialize($_VAL['p']);
-            $re = $_VAL['re'];  //返回值
-            $lasttime = time(); //最后操作时间
-            $lastuid = session('id'); //操作者id
-            $isdel = 0; //是否删除的标识
+            $re        = $_VAL['re'];  //返回值
+            $lasttime  = time(); //最后操作时间
+            $lastuid   = session('id'); //操作者id
+            $isdel     = 0; //是否删除的标识
+
             $sql = "insert into api (
             `aid`,`num`,`name`,`des`,`url`,
             `type`,`parameter`,`re`,`lasttime`,
-            `lastuid`,`isdel`,`memo`,`ord`
+            `lastuid`,`isdel`,`memo`,`ord`,`ctime`
             )values (
             '{$aid}','{$num}','{$name}','{$des}','{$url}',
             '{$type}','{$parameter}','{$re}','{$lasttime}',
-            '{$lastuid}','{$isdel}','{$memo}','99999'
+            '{$lastuid}','{$isdel}','{$memo}','99999','".date('Y-m-d H:i:s',$lasttime)."'
             )";
             $re = insert($sql);
             if($re){
@@ -46,18 +47,18 @@
        if(!is_supper()){die('只有超级管理员才可对接口进行操作');}
        //执行编辑
        if($type == 'do'){
-           $id = $_VAL['id'];   //接口id
-           $num = htmlspecialchars($_POST['num'],ENT_QUOTES);   //接口编号(为了导致编号的前导0去过滤掉。不用用I方法过滤)
+           $id   = $_VAL['id'];   //接口id
+           $num  = htmlspecialchars($_POST['num'],ENT_QUOTES);   //接口编号(为了导致编号的前导0去过滤掉。不用用I方法过滤)
            $name = $_VAL['name'];  //接口名称
            $memo = $_VAL['memo']; //备注
-           $des = $_VAL['des'];    //描述
+           $des  = $_VAL['des'];    //描述
            $type = $_VAL['type'];  //请求方式
-           $url = $_VAL['url']; //请求地址
+           $url  = $_VAL['url']; //请求地址
 
            $parameter = serialize($_VAL['p']);
-           $re = $_VAL['re'];  //返回值
-           $lasttime = time(); //最后操作时间
-           $lastuid = session('id'); //操作者id
+           $re        = $_VAL['re'];  //返回值
+           $lasttime  = time(); //最后操作时间
+           $lastuid   = session('id'); //操作者id
 
            $sql ="update api set num='{$num}',name='{$name}',
            des='{$des}',url='{$url}',type='{$type}',
@@ -107,11 +108,11 @@
         $sql = "insert into api (
             `aid`,`num`,`name`,`des`,`url`,
             `type`,`parameter`,`re`,`lasttime`,
-            `lastuid`,`isdel`,`memo`,`ord`
+            `lastuid`,`isdel`,`memo`,`ord`,`ctime`
             )values (
             '{$info['aid']}','{$maxNum}','{$name}','{$info['des']}','{$info['url']}',
             '{$info['type']}','{$info['parameter']}','{$info['re']}','{$time}',
-            '{$lastuid}','0','{$info['memo']}','99999'
+            '{$lastuid}','0','{$info['memo']}','99999','".date('Y-m-d H:i:s',$time)."'
             )";
         $re = insert($sql);
         if ( $re ) {

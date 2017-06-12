@@ -1,7 +1,7 @@
 <?php defined('API') or exit("menu-".ERR_IP);?>
 <!--导航-->
 <?php if($act != 'api' && $act != 'sort'){
-    $list = select('select * from cate where isdel=0 order by addtime desc');
+    $list = select('select * from cate where isdel=0 order by ord desc,addtime desc');
 
     if(session('id')){
         $auth = find("select * from auth where uid=".session('id'));
