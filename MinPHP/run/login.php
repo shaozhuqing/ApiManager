@@ -22,8 +22,9 @@
         }else{
             echo '<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 登录失败,帐号或密码错误</div>';
         }
+    }
     //退出
-    }if($type == 'quit'){
+    if($type == 'quit'){
         session_unset();
         session_destroy();
         go(U());

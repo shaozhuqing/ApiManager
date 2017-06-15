@@ -10,10 +10,8 @@
     $filename = $filename['cname'].$version.'.html';
     //要抓取的接口分类url
     $url = BASEURL.U(array('act'=>'api','tag'=>$tag));
-    // 如果file_get_contents函数不能用就用curl方式获取
-    function file_get_contents_fixed($url)
-    {
-
+    //如果file_get_contents函数不能用就用curl方式获取
+    function file_get_contents_fixed($url){
         switch (true) {
             case function_exists('file_get_contents'):
                 $res = file_get_contents($url);

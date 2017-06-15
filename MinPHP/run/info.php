@@ -15,16 +15,16 @@
             }
             $num  = htmlspecialchars($_POST['num'],ENT_QUOTES);   //接口编号(为了导致编号的前导0去过滤掉。不用用I方法过滤)
             $name = $_VAL['name'];  //接口名称
-            $memo = $_VAL['memo']; //备注
-            $des  = $_VAL['des'];    //描述
+            $memo = $_VAL['memo'];  //备注
+            $des  = $_VAL['des'];   //描述
             $type = $_VAL['type'];  //请求方式
             $url  = $_VAL['url'];
 
             $parameter = serialize($_VAL['p']);
-            $re        = $_VAL['re'];  //返回值
-            $lasttime  = time(); //最后操作时间
+            $re        = $_VAL['re'];   //返回值
+            $lasttime  = time();        //最后操作时间
             $lastuid   = session('id'); //操作者id
-            $isdel     = 0; //是否删除的标识
+            $isdel     = 0;             //是否删除的标识
 
             $sql = "insert into api (
             `aid`,`num`,`name`,`des`,`url`,
@@ -47,17 +47,17 @@
        if(!is_supper()){die('只有超级管理员才可对接口进行操作');}
        //执行编辑
        if($type == 'do'){
-           $id   = $_VAL['id'];   //接口id
+           $id   = $_VAL['id'];    //接口id
            $num  = htmlspecialchars($_POST['num'],ENT_QUOTES);   //接口编号(为了导致编号的前导0去过滤掉。不用用I方法过滤)
            $name = $_VAL['name'];  //接口名称
-           $memo = $_VAL['memo']; //备注
-           $des  = $_VAL['des'];    //描述
+           $memo = $_VAL['memo'];  //备注
+           $des  = $_VAL['des'];   //描述
            $type = $_VAL['type'];  //请求方式
-           $url  = $_VAL['url']; //请求地址
+           $url  = $_VAL['url'];   //请求地址
 
            $parameter = serialize($_VAL['p']);
-           $re        = $_VAL['re'];  //返回值
-           $lasttime  = time(); //最后操作时间
+           $re        = $_VAL['re'];   //返回值
+           $lasttime  = time();        //最后操作时间
            $lastuid   = session('id'); //操作者id
 
            $sql ="update api set num='{$num}',name='{$name}',
@@ -145,31 +145,25 @@
    }
 ?>
 <?php if($op == 'add'){ ?>
-    <!--添加接口 start-->
+<!--添加接口 start-->
     
 <!--js自动保存到cookie  star-->
-    <script src="./MinPHP/res/jquery.min.js"></script>
-    <script>
-    	
-    	$(function(){
-    		
-					$("textarea[name='des'],textarea[name='re'],textarea[name='memo']").keydown(function () {
-						AutoSave();
-					});
-					
-					$(".btn-success").click(function(){
-						DeleteCookie('apimanage');
-					});
-    		
-    	});
-		</script>
-<script>	
-/**
-*
-*自动保存文字到cookie中
-*http://www.xuebuyuan.com/1323493.html
-*
-*/
+<script src="./MinPHP/res/jquery.min.js"></script>
+<script>
+$(function(){
+    $("textarea[name='des'],textarea[name='re'],textarea[name='memo']").keydown(function () {
+        AutoSave();
+    });
+
+    $(".btn-success").click(function(){
+        DeleteCookie('apimanage');
+    });
+});
+</script>
+
+<script>
+<!-- js自动保存到cookie  start -->
+//http://www.xuebuyuan.com/1323493.html
 function AutoSave() {
 	var des = $("textarea[name='des']").val();
 	var re  = $("textarea[name='re']").val();

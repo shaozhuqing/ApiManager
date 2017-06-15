@@ -1,12 +1,12 @@
 <?php defined('API') or exit("menu-".ERR_IP);?>
 <!--导航-->
-<?php if($act != 'api' && $act != 'sort'){
+<?php
+if($act != 'api' && $act != 'sort'){
     $list = select('select * from cate where isdel=0 order by ord desc,addtime desc');
 
     if(session('id')){
         $auth = find("select * from auth where uid=".session('id'));
     }
-
 ?>
     <div class="form-group">
         <input type="text" class="form-control" id="searchcate" onkeyup="search('cate',this)" placeholder="尝试搜索您想要的接口">
