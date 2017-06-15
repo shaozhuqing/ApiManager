@@ -66,6 +66,18 @@
            where id = '{$id}'";
            $re = update($sql);
            if($re){
+               // 添加修改接口日志记录
+               $sql = "insert into `log` (
+                `api`,`aid`,`num`,`name`,`des`,`url`,
+                `type`,`parameter`,`re`,`lasttime`,
+                `lastuid`,`isdel`,`memo`,`ctime`
+                )values (
+                '{$id}','{$aid}','{$num}','{$name}','{$des}','{$url}',
+                '{$type}','{$parameter}','{$re}','{$lasttime}',
+                '{$lastuid}','{$isdel}','{$memo}','".date('Y-m-d H:i:s',$lasttime)."'
+                )";
+               $re = insert($sql);
+
                go(U(array('act'=>'api','tag'=>($_GET['tag'].'#info_api_'.md5($id)))));
            }else{
                echo '<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 修改失败</div>';

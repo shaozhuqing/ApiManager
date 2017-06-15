@@ -143,6 +143,35 @@ UNLOCK TABLES;
 
 
 
+# Dump of table log
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `log`;
+
+CREATE TABLE `log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+  `api` int(11) NOT NULL DEFAULT '0' COMMENT '接口ID',
+  `aid` int(11) NOT NULL DEFAULT '0' COMMENT '接口分类id',
+  `num` varchar(100) NOT NULL DEFAULT '' COMMENT '接口编号',
+  `url` varchar(240) NOT NULL DEFAULT '' COMMENT '请求地址',
+  `name` varchar(100) NOT NULL DEFAULT '' COMMENT '接口名',
+  `des` varchar(300) NOT NULL DEFAULT '' COMMENT '接口描述',
+  `parameter` text NOT NULL COMMENT '请求参数{所有的主求参数,以json格式在此存放}',
+  `memo` text NOT NULL COMMENT '备注',
+  `re` text NOT NULL COMMENT '返回值',
+  `lasttime` int(11) unsigned NOT NULL COMMENT '提后操作时间',
+  `lastuid` int(11) unsigned NOT NULL COMMENT '最后修改uid',
+  `isdel` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '{0:正常,1:删除}',
+  `type` char(11) NOT NULL DEFAULT '' COMMENT '请求方式',
+  `ctime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `utime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='接口修改记录表';
+
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
