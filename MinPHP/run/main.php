@@ -18,7 +18,7 @@
 <div class="container-fluid" style="background:white;height:100%;">
     <div class="row" style="height:100%;">
         <!--左侧导航start-->
-        <div id="navbar" class="col-md-3" style="position:relative;background:#f5f5f5;padding:10px;height:100%;border-right:#ddd 1px solid;overflow-y:auto;<?php if($_COOKIE[C('cookie->navbar')]==1){?>display:none<?php }?>">
+        <div id="navbar" class="col-md-4" style="position:relative;background:#f5f5f5;padding:10px;height:100%;border-right:#ddd 1px solid;overflow-y:auto;<?php if($_COOKIE[C('cookie->navbar')]==1){?>display:none<?php }?>">
             <div style="height:50px;font-size:24px;line-height:50px;">
                 <a class="home" style="color:#000000;text-shadow:1px 0px 1px #666;text-decoration: none" href="<?php echo U()?>">
                     <span class="glyphicon glyphicon-random" aria-hidden="true" style="width:40px;"></span>&nbsp;
@@ -31,7 +31,7 @@
             ?>
         </div>
         <!--左侧导航end-->
-        <div id="mainwindow" <?php if($_COOKIE[C('cookie->navbar')]==1){?>class="col-md-12"<?php }else{?>class="col-md-9" <?php }?>  style="height:100%;background:white;margin:0px;overflow-y:auto;padding:0px;">
+        <div id="mainwindow" <?php if($_COOKIE[C('cookie->navbar')]==1){?>class="col-md-12"<?php }else{?>class="col-md-8" <?php }?>  style="height:100%;background:white;margin:0px;overflow-y:auto;padding:0px;">
             <!--顶部导航start-->
             <div class="textshadow" style="font-size:14px;widht:100%;height:50px;line-height:50px;padding:0 12px 0 12px;;border-bottom:#ddd 1px solid">
                 <span> <a class="home" href="<?php echo U() ?>">首页</a><?php echo $menu;?></span>
