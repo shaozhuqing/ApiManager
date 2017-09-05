@@ -1,6 +1,7 @@
 <?php defined('API') or exit("info-".ERR_IP);?>
 <!--接口详情列表与接口管理start-->
 <?php
+   if(!is_login()){die('请登陆后查看');}
    $_VAL = I($_POST);
    //操作类型{add,delete,edit}
    $op = $_GET['op'];

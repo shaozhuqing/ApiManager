@@ -40,10 +40,10 @@
     }
 
     //得到数据库连接资源
-    function M(){
+    function M($mydb){
         static $_model = null;
         if(is_null($_model)){
-            $db=C('db');
+            $db=C($mydb);
             //连接类型
             $type = strtolower($db['linktype']);
             $type = in_array($type,array('pdo','mysqli')) ? $type : 'mysqli';
@@ -75,15 +75,15 @@
     }
 
     //返回一条记录集
-    function find($sql){
+    function find($sql,$mydb='db'){
         switch(C('db->linktype')){
             case 'pdo':
-                $rs = M()->query($sql);
+                $rs = M($mydb)->query($sql);
                 $row = $rs->fetch(PDO::FETCH_ASSOC);
                 return $row;
                 break;
             case 'mysqli':
-                $rs = M()->query($sql);
+                $rs = M($mydb)->query($sql);
                 $row = $rs->fetch_assoc();
                 return $row;
                 break;
@@ -91,10 +91,10 @@
     }
 
     //返回多条记录
-    function select($sql){
+    function select($sql,$mydb='db'){
         switch(C('db->linktype')){
             case 'pdo':
-                $rs = M()->query($sql);
+                $rs = M($mydb)->query($sql);
                 $rows = array();
                 while($row = $rs->fetch(PDO::FETCH_ASSOC)){
                     $rows[] = $row;
@@ -102,7 +102,7 @@
                 return $rows;
                 break;
             case 'mysqli':
-                $rs = M()->query($sql);
+                $rs = M($mydb)->query($sql);
                 $rows = array();
                 while($row = $rs->fetch_assoc()){
                     $rows[] = $row;
@@ -114,25 +114,25 @@
     }
 
     //insert
-    function insert($sql){
+    function insert($sql,$mydb='db'){
         switch(C('db->linktype')){
             case 'pdo':
-                return M()->exec($sql);
+                return M($mydb)->exec($sql);
                 break;
             case 'mysqli':
-                return M()->query($sql);
+                return M($mydb)->query($sql);
                 break;
         }
     }
 
     //update
-    function update($sql){
+    function update($sql,$mydb='db'){
         switch(C('db->linktype')){
             case 'pdo':
-                return M()->exec($sql);
+                return M($mydb)->exec($sql);
                 break;
             case 'mysqli':
-                return M()->query($sql);
+                return M($mydb)->query($sql);
                 break;
         }
 
